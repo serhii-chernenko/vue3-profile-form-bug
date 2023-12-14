@@ -1,9 +1,9 @@
 <script setup>
 import CurrentUser from "@/CurrentUser.vue";
 import ProfileForm from "@/ProfileForm.vue";
-import { ref } from "vue";
+import { shallowRef, nextTick } from "vue";
 
-let user = ref({
+let user = shallowRef({
   firstName: "James",
   lastName: "Sullivan",
   about:
@@ -12,8 +12,9 @@ let user = ref({
   image: "/sully.webp",
 });
 
-const updateUserData = (data) => {
+const updateUserData = async (data) => {
   user.value = data;
+  await nextTick();
 };
 </script>
 <template>

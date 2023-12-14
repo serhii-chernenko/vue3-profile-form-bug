@@ -1,5 +1,5 @@
 <script setup>
-import { ref, unref } from "vue";
+import { shallowReactive } from "vue";
 
 const emit = defineEmits(["update"]);
 
@@ -9,9 +9,9 @@ const props = defineProps({
     required: true,
   },
 });
-const user = ref(props.user);
+const user = shallowReactive({ ...props.user });
 const update = () => {
-  emit("update", { ...unref(user) });
+  emit("update", { ...user });
 };
 </script>
 
