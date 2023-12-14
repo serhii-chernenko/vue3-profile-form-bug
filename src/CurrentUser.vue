@@ -1,10 +1,12 @@
 <script setup>
-defineProps({
+const props = defineProps({
   user: {
     type: Object,
     required: true,
   },
 });
+
+const userImage = new URL(props.user.image, import.meta.url).href;
 </script>
 
 <template>
@@ -41,7 +43,7 @@ defineProps({
           <div class="col-span-full">
             <div class="label">Photo</div>
             <div class="image-wrapper">
-              <img :src="new URL(user.image, import.meta.url).href" alt="" class="image" />
+              <img :src="userImage" alt="" class="image" />
             </div>
           </div>
 
