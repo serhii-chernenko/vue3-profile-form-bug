@@ -6,7 +6,7 @@ const props = defineProps({
   },
 });
 
-const userImage = new URL(props.user.image, import.meta.url).href;
+const userImage = new URL(`../public/${props.user.image}`, import.meta.url).href;
 </script>
 
 <template>
