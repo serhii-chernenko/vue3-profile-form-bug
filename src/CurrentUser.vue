@@ -41,7 +41,7 @@ defineProps({
           <div class="col-span-full">
             <div class="label">Photo</div>
             <div class="image-wrapper">
-              <img :src="user.image" alt="" class="image" />
+              <img :src="new URL(user.image, import.meta.url).href" alt="" class="image" />
             </div>
           </div>
 
